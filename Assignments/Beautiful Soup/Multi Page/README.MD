@@ -37,4 +37,4 @@ The script will start scraping movie data from IMDb. It will display progress as
 
 # Conclusion
 
-The IMDb Top Movies Data Scraping Script is a versatile tool that simplifies the process of gathering movie information from IMDb for the year 2023. By fetching data such as movie names, release years, IMDb ratings, metascores, and votes, the script provides valuable insights into the top movies of the year.
+The IMDb Top Movies Data Scraping Script is a versatile tool that simplifies the process of gathering movie information from IMDb for the year 2023. By fetching data such as movie names, release years, IMDb ratings, metascores, and votes, the script provides valuable insights into the top movies of the year(2023).
