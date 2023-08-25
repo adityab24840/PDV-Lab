@@ -13,6 +13,12 @@ class QuotesSpider(scrapy.Spider):
     start_urls = ('http://quotes.toscrape.com/',)
     
     def parse(self, response):
-        #title = response.css('title').extract() #output=tage + string
-        title = response.css('title::text').extract()  #output= string
-        yield {'titletest': title}  
+        title = response.css('title::text').extract_first()
+        authors = response.css('.author::text').extract_first()
+        tags = response.css('.tag::text').extract_first()
+
+        yield {
+            'title': title,
+            'authors': authors,
+            'tags': tags
+        }
