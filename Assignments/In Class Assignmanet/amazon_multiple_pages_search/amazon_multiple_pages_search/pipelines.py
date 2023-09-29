@@ -1,4 +1,4 @@
-# amazon_multiple_pages_search/pipelines.py
+# amazon_multiple_pages_search/pipelines.py 
 
 import json
 from scrapy.exporters import JsonItemExporter
