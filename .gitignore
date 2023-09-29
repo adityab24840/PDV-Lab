@@ -151,3 +151,14 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 Assignments/Scrapy Assignment/
+Assignments/In Class Assignmanet/mohitpdv/amazon_data.json
+Assignments/In Class Assignmanet/mohitpdv/amazon_single_page_data.json
+Assignments/In Class Assignmanet/mohitpdv/amazon_single_page_search/__init__.py
+Assignments/In Class Assignmanet/mohitpdv/amazon_single_page_search/items.py
+Assignments/In Class Assignmanet/mohitpdv/amazon_single_page_search/middlewares.py
+Assignments/In Class Assignmanet/mohitpdv/amazon_single_page_search/pipelines.py
+Assignments/In Class Assignmanet/mohitpdv/amazon_single_page_search/settings.py
+Assignments/In Class Assignmanet/mohitpdv/amazon_single_page_search/spiders/__init__.py
+Assignments/In Class Assignmanet/mohitpdv/amazon_single_page_search/spiders/amazon_spider.py
+Assignments/In Class Assignmanet/mohitpdv/amazon_single_page_search/spiders/mohitpdvinclass1.py
+Assignments/In Class Assignmanet/mohitpdv/scrapy.cfg
