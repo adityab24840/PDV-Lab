@@ -1,7 +1,7 @@
 import scrapy
 from amazon_multiple_pages_search.items import AmazonItem
 from urllib.parse import urlparse, parse_qs
-
+ 
 class AmazonMultiplePagesSpider(scrapy.Spider):
     name = 'amazon_multiple_pages_spider'
 
