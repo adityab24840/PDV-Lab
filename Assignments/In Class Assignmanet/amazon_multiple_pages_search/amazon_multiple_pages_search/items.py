@@ -1,4 +1,4 @@
-# amazon_multiple_pages_search/items.py
+# amazon_multiple_pages_search/items.py 
 
 import scrapy
 
