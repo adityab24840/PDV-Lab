@@ -1,6 +1,5 @@
-# Report: Web Scraping with Scrapy
+# Web Scraping with Scrapy
 
-## College Details
 - **Name:** Aditya N Bhatt
 - **College:** Manipal School of Information Sciences
 - **Branch:** AI & ML
@@ -11,7 +10,7 @@
 
 1. [Overview Summary](#overview-summary)
 2. [Case 1: Single-Page Web Scraping](#case-1-single-page-web-scraping)
-   - [Objective](#objective)
+   - [Objective](#objective-case-1)
    - [Project Structure](#project-structure-case-1)
    - [Items Code (items.py)](#items-code-itemspy-case-1)
    - [Pipeline Code (pipelines.py)](#pipeline-code-pipelinespy-case-1)
@@ -104,7 +103,9 @@ class AmazonSpider(scrapy.Spider):
 
         yield item
 ```
-**Explanation:** The `amazon_spider.py` file contains the Scrapy spider class `AmazonSpider`. This class is responsible for web scraping. In the `parse` method:
+**Explanation:** The `amazon_spider.py` file contains the Scrapy spider class `AmazonSpider`. This class is responsible for web scraping. In the
+
+ `parse` method:
 - We send an HTTP request to the specified URL.
 - We use CSS selectors (`response.css()`) to extract the product title and price from the page.
 - We create an `AmazonItem` object and store the extracted data in its fields.
@@ -153,7 +154,7 @@ ITEM_PIPELINES = {
     'amazon_scraper.pipelines.AmazonPipeline': 300,
 }
 ```
-**Explanation:** In the `settings.py` file, we configure various project settings. These settings include:
+**Explanation:** In the `settings.py` file, we configure various project settings, including:
 - `BOT_NAME`: The name of the Scrapy bot.
 - `FEED_EXPORT_ENCODING`: Encoding for exported data (UTF-8).
 - `NEWSPIDER_MODULE`: Module for new spiders.
@@ -186,9 +187,7 @@ class AmazonSearchSpider(scrapy.Spider):
 **Explanation:** The `amazon_search_spider.py` file contains the Scrapy spider class `AmazonSearchSpider`. In the `parse` method:
 - We send an HTTP request to the specified search results URL.
 - We use CSS selectors (`response.css()`) to extract product titles and prices from the search results page.
-- We
-
- iterate through each product, create an `AmazonItem` object, and store the extracted data in its fields.
+- We iterate through each product, create an `AmazonItem` object, and store the extracted data in its fields.
 - Finally, we use `yield` to pass each item through the configured pipeline for further processing.
 
 ### Conclusion (Case 2)
@@ -224,7 +223,9 @@ class AmazonPipeline:
 **Settings Code (settings.py):**
 ```python
 BOT_NAME = 'amazon_scraper'
-FEED_EXPORT_ENCODING = 'utf-8'
+FEED_EXPORT_ENCODING =
+
+ 'utf-8'
 NEWSPIDER_MODULE = 'amazon_scraper.spiders'
 ROBOTSTXT_OBEY = True
 SPIDER_MODULES = ['amazon_scraper.spiders']
@@ -288,7 +289,7 @@ This project structure allows for efficient scraping of data from multiple pages
 If you have any questions, need further assistance, or would like to get in touch with me, please feel free to reach out through the following contact methods:
 
 **Email:**
-You can email me at adityab24840@gmail.com for any inquiries or assistance related to the report or the provided Scrapy projects.
+You can email me at [adityab24840@gmail.com](mailto:adityab24840@gmail.com) for any inquiries or assistance related to the report or the provided Scrapy projects.
 
 **LinkedIn:**
 You can connect with me on LinkedIn at [Aditya N Bhatt](https://www.linkedin.com/in/adityanbhatt/) for professional networking and discussions.
