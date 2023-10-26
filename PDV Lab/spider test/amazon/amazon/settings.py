@@ -1,4 +1,4 @@
-# Scrapy settings for amazon_single_page_search project
+# Scrapy settings for amazon project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,14 +7,14 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = "amazon_single_page_search"
+BOT_NAME = "amazon"
 
-SPIDER_MODULES = ["amazon_single_page_search.spiders"]
-NEWSPIDER_MODULE = "amazon_single_page_search.spiders"
+SPIDER_MODULES = ["amazon.spiders"]
+NEWSPIDER_MODULE = "amazon.spiders"
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = "amazon_single_page_search (+http://www.yourdomain.com)"
+#USER_AGENT = "amazon (+http://www.yourdomain.com)"
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -45,13 +45,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    "amazon_single_page_search.middlewares.AmazonSinglePageSearchSpiderMiddleware": 543,
+#    "amazon.middlewares.AmazonSpiderMiddleware": 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    "amazon_single_page_search.middlewares.AmazonSinglePageSearchDownloaderMiddleware": 543,
+#    "amazon.middlewares.AmazonDownloaderMiddleware": 543,
 #}
 
 # Enable or disable extensions
@@ -62,9 +62,9 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    "amazon_single_page_search.pipelines.AmazonSinglePageSearchPipeline": 300,
-#}
+ITEM_PIPELINES = {
+    "amazon.pipelines.AmazonPipeline": 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
@@ -91,24 +91,3 @@ ROBOTSTXT_OBEY = True
 REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
-
-
-# amazon_single_page_search/settings.py
-
-# amazon_single_page_search/settings.py
-
-BOT_NAME = 'amazon_single_page_search'
-
-SPIDER_MODULES = ['amazon_single_page_search.spiders']
-NEWSPIDER_MODULE = 'amazon_single_page_search.spiders'
-
-USER_AGENT = 'Your User Agent String'  # Set your user agent
-
-ROBOTSTXT_OBEY = True
-
-ITEM_PIPELINES = {
-    'amazon_single_page_search.pipelines.AmazonSinglePageSearchPipeline': 300,
-}
-
-FEED_FORMAT = 'json'
-FEED_URI = 'amazon_single_page_data.json'

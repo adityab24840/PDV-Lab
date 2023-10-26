@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Readme.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h2 id="8-demonstrate-different-types-of-relationship-present-between-tables-with-an-example">8. Demonstrate different types of relationship present between tables with an example.</h2>
+<p>In Power BI, there are three main types of relationships between tables: One-to-Many, Many-to-One, and Many-to-Many. Let's demonstrate each type of relationship with an example using three fictional tables: &quot;Sales,&quot; &quot;Products,&quot; and &quot;Customers.&quot;</p>
+<p><strong>1. One-to-Many Relationship (1:N):</strong>
+A one-to-many relationship is the most common type of relationship in Power BI. It means that for each unique record in the &quot;one&quot; table, there can be multiple related records in the &quot;many&quot; table.</p>
+<p><strong>Example:</strong></p>
+<ul>
+<li><strong>Tables:</strong>
+<ul>
+<li>&quot;Sales&quot; (One side): Contains sales transactions with details like date, product ID, and quantity.</li>
+<li>&quot;Products&quot; (Many side): Contains product information, including product names and categories.</li>
+</ul>
+</li>
+<li><strong>Relationship:</strong> Each sale is associated with a single product, but each product can be sold in multiple transactions. Therefore, there's a one-to-many relationship between &quot;Products&quot; and &quot;Sales&quot; based on the &quot;Product ID&quot; column.</li>
+</ul>
+<p><strong>2. Many-to-One Relationship (N:1):</strong>
+This type of relationship is essentially the reverse of a one-to-many relationship. It means that multiple records in the &quot;many&quot; table can be associated with a single record in the &quot;one&quot; table.</p>
+<p><strong>Example:</strong></p>
+<ul>
+<li><strong>Tables:</strong>
+<ul>
+<li>&quot;Sales&quot; (Many side): Contains sales transactions with details like date, product ID, and quantity.</li>
+<li>&quot;Customers&quot; (One side): Contains customer information, including customer names and addresses.</li>
+</ul>
+</li>
+<li><strong>Relationship:</strong> Each sale is made by a single customer, but each customer can have multiple sales transactions. Therefore, there's a many-to-one relationship between &quot;Customers&quot; and &quot;Sales&quot; based on the &quot;Customer ID&quot; column.</li>
+</ul>
+<p><strong>3. Many-to-Many Relationship (N:N):</strong>
+A many-to-many relationship is less common in Power BI but is still possible. It indicates that multiple records in both the &quot;many&quot; and &quot;one&quot; tables can be related to each other.</p>
+<p><strong>Example:</strong></p>
+<ul>
+<li><strong>Tables:</strong>
+<ul>
+<li>&quot;Sales&quot; (Many side): Contains sales transactions with details like date and customer ID.</li>
+<li>&quot;Products&quot; (Many side): Contains product information, including product names and categories.</li>
+<li>&quot;Customers&quot; (Many side): Contains customer information, including customer names and addresses.</li>
+</ul>
+</li>
+<li><strong>Relationship:</strong> In this example, a sale can involve multiple products, and each product can be sold to multiple customers. Therefore, there's a many-to-many relationship between &quot;Sales,&quot; &quot;Products,&quot; and &quot;Customers.&quot; To create such a relationship, an intermediate table called &quot;SalesProducts&quot; could be used to map the products sold in each transaction.</li>
+</ul>
+<p>Here's a simplified Power BI model to represent these relationships:</p>
+<ul>
+<li>&quot;Sales&quot; has a many-to-one relationship with &quot;Customers&quot; (Customer ID in &quot;Sales&quot; related to Customer ID in &quot;Customers&quot;).</li>
+<li>&quot;Sales&quot; has a one-to-many relationship with &quot;Products&quot; (Product ID in &quot;Sales&quot; related to Product ID in &quot;Products&quot;).</li>
+<li>If needed, you can establish a many-to-many relationship between &quot;Sales,&quot; &quot;Products,&quot; and &quot;Customers&quot; using an intermediate table.</li>
+</ul>
+<h3 id="refernce">Refernce :</h3>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-create-and-manage-relationships">Create and manage relationships in Power BI Desktop</a></li>
+</ul>
+<h2 id="9-what-is-dax">9. What is DAX?</h2>
+<p><strong>DAX (Data Analysis Expressions)</strong> is a formula language and expression language used in Microsoft Power BI, Power Pivot, and Analysis Services. It is specifically designed for creating custom calculations, aggregations, and other data manipulations in these tools. DAX is similar to Excel functions but tailored for more complex and larger data models. DAX formulas can be used to create custom calculated columns, measures, and table-level expressions.</p>
+<h2 id="features-of-power-bi">Features of Power BI</h2>
+<h3 id="1-data-connectivity">1. Data Connectivity</h3>
+<p>Power BI allows you to connect to a wide range of data sources, including databases, cloud services, spreadsheets, and web services. You can import, transform, and load data from various sources to create meaningful visualizations.</p>
+<h3 id="2-data-transformation">2. Data Transformation</h3>
+<p>With Power BI's Power Query, you can clean, shape, and transform your data to suit your analytical needs. This ETL (Extract, Transform, Load) functionality enables you to handle data preparation efficiently.</p>
+<h3 id="3-data-modeling">3. Data Modeling</h3>
+<p>Power BI provides a robust data modeling feature that allows you to create relationships between tables, define hierarchies, and optimize your data structure for analysis.</p>
+<h3 id="4-visualization">4. Visualization</h3>
+<p>Create interactive and insightful visualizations with a variety of chart types, maps, and tables. Power BI offers extensive customization options to make your reports visually appealing and informative.</p>
+<h3 id="5-natural-language-query">5. Natural Language Query</h3>
+<p>You can use natural language queries to ask questions about your data. Power BI's Q&amp;A feature can understand your questions and provide answers in the form of visuals.</p>
+<h3 id="6-dax-formulas">6. DAX Formulas</h3>
+<p>DAX (Data Analysis Expressions) is a powerful formula language for creating custom calculations, measures, and calculated columns. It enables you to perform advanced calculations on your data, such as aggregations, time intelligence, and more.</p>
+<h3 id="7-collaboration-and-sharing">7. Collaboration and Sharing</h3>
+<p>Power BI allows you to collaborate with others by sharing reports and dashboards. You can publish your reports to the Power BI service or embed them in other applications.</p>
+<h3 id="8-mobile-accessibility">8. Mobile Accessibility</h3>
+<p>Access your reports and dashboards on the go using Power BI's mobile app. It provides a seamless experience for users on smartphones and tablets.</p>
+<h2 id="writing-dax-formulas">Writing DAX Formulas</h2>
+<p>DAX formulas in Power BI are written using a combination of functions and operators. Here's a basic syntax for writing DAX formulas:</p>
+<pre class="hljs"><code><div>Result = FunctionName([Column1], [Column2], ...)
+</div></code></pre>
+<ul>
+<li>
+<p><strong>Result</strong>: This is the name you give to the calculated column or measure you're creating.</p>
+</li>
+<li>
+<p><strong>FunctionName</strong>: The name of the DAX function you want to use for your calculation (e.g., SUM, AVERAGE, COUNT, etc.).</p>
+</li>
+<li>
+<p><strong>[Column1], [Column2], ...</strong>: These are the columns or values you want to use as inputs for your function. You can reference columns in your data model or provide explicit values.</p>
+</li>
+</ul>
+<p>Here's an example of a simple DAX formula to calculate the total sales:</p>
+<pre class="hljs"><code><div>Total Sales = SUM(Sales[SalesAmount])
+</div></code></pre>
+<p>In this formula:</p>
+<ul>
+<li>&quot;Total Sales&quot; is the name of the calculated measure.</li>
+<li>&quot;SUM&quot; is the DAX function used to sum the values.</li>
+<li>&quot;Sales[SalesAmount]&quot; references the &quot;SalesAmount&quot; column in the &quot;Sales&quot; table.</li>
+</ul>
+<h3 id="refernce">Refernce :</h3>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/power-bi/">Power BI documentation</a>.</li>
+</ul>
+<h2 id="10-demonstrate-the-following-dax-formulas-with-a-context">10. Demonstrate the following DAX formulas with a context:</h2>
+<p>let's demonstrate these DAX formulas in the context of analyzing sales data for a fictional retail company.</p>
+<p><strong>Assume we have a Power BI data model with the following tables:</strong></p>
+<ol>
+<li>
+<p>Sales: Contains information about each sale, including the sales date, product ID, quantity, and total sales amount.</p>
+</li>
+<li>
+<p>Products: Contains details about the products, including product name and category.</p>
+</li>
+</ol>
+<p>Now, let's use the mentioned DAX functions in various scenarios:</p>
+<ol>
+<li><strong>COUNT</strong>: Calculate the total number of sales transactions.</li>
+</ol>
+<pre class="hljs"><code><div>Total Sales Count = COUNTROWS(Sales)
+</div></code></pre>
+<ol start="2">
+<li><strong>DISTINCTCOUNT</strong>: Calculate the total number of distinct products sold.</li>
+</ol>
+<pre class="hljs"><code><div>Unique Products Sold = DISTINCTCOUNT(Sales[Product ID])
+</div></code></pre>
+<ol start="3">
+<li><strong>SUM</strong>: Calculate the total sales amount for all transactions.</li>
+</ol>
+<pre class="hljs"><code><div>Total Sales Amount = SUM(Sales[Sales Amount])
+</div></code></pre>
+<ol start="4">
+<li><strong>AVERAGE</strong>: Calculate the average sales amount per transaction.</li>
+</ol>
+<pre class="hljs"><code><div>Average Sales Amount = AVERAGE(Sales[Sales Amount])
+</div></code></pre>
+<ol start="5">
+<li><strong>MIN and MAX</strong>: Find the minimum and maximum sales amounts.</li>
+</ol>
+<pre class="hljs"><code><div>Minimum Sales Amount = MIN(Sales[Sales Amount])
+Maximum Sales Amount = MAX(Sales[Sales Amount])
+</div></code></pre>
+<ol start="6">
+<li><strong>SUMMARIZE</strong>: Create a summary table to aggregate sales data by product category.</li>
+</ol>
+<pre class="hljs"><code><div>SummaryTable = SUMMARIZE(
+    Sales,
+    Products[Category],
+    &quot;Total Sales&quot;, SUM(Sales[Sales Amount]),
+    &quot;Total Quantity&quot;, SUM(Sales[Quantity])
+)
+</div></code></pre>
+<ol start="7">
+<li><strong>CALCULATE</strong>: Calculate the total sales amount for a specific product category (e.g., &quot;Electronics&quot;).</li>
+</ol>
+<pre class="hljs"><code><div>Electronics Sales = CALCULATE(SUM(Sales[Sales Amount]), Products[Category] = &quot;Electronics&quot;)
+</div></code></pre>
+<ol start="8">
+<li><strong>IF</strong>: Create a calculated column that categorizes sales as &quot;High&quot; or &quot;Low&quot; based on a threshold (e.g., $500).</li>
+</ol>
+<pre class="hljs"><code><div>Sales Category = IF(Sales[Sales Amount] &gt; 500, &quot;High&quot;, &quot;Low&quot;)
+</div></code></pre>
+<ol start="9">
+<li><strong>IFERROR</strong>: Handle errors when calculating the profit margin for each sale.</li>
+</ol>
+<pre class="hljs"><code><div>Profit Margin = IFERROR((Sales[Sales Amount] - Sales[Cost]) / Sales[Sales Amount], 0)
+</div></code></pre>
+<ol start="10">
+<li><strong>ISBLANK</strong>: Calculate the count of sales transactions with missing product IDs.</li>
+</ol>
+<pre class="hljs"><code><div>Missing Product ID Count = COUNTROWS(FILTER(Sales, ISBLANK(Sales[Product ID])))
+</div></code></pre>
+<ol start="11">
+<li><strong>EOMONTH</strong>: Calculate the last day of the current month for a given sales date.</li>
+</ol>
+<pre class="hljs"><code><div>Last Day of Current Month = EOMONTH(MAX(Sales[Sales Date]), 0)
+</div></code></pre>
+<ol start="12">
+<li><strong>DATEDIFF</strong>: Calculate the number of days between the order date and the ship date for each sale.</li>
+</ol>
+<pre class="hljs"><code><div>Days to Ship = DATEDIFF(Sales[Order Date], Sales[Ship Date], DAY)
+</div></code></pre>
+<h3 id="refernce">Refernce :</h3>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/dax/dax-functions">DAX functions - Microsoft Docs</a></li>
+</ul>
+<h2 id="11-describe-the-terminology-used-in-power-bi-with-a-exampleuse-case">11. Describe the terminology used in Power BI with a example/use case:</h2>
+<ol>
+<li>
+<p><strong>Table</strong>:</p>
+<ul>
+<li><strong>Definition</strong>: A table in Power BI is a collection of data. It can represent various data entities, such as sales data, product information, or customer details.</li>
+<li><strong>Example</strong>: The &quot;Sales&quot; table contains information about sales transactions, including columns for date, product, quantity, and sales amount.</li>
+</ul>
+</li>
+<li>
+<p><strong>Fact</strong>:</p>
+<ul>
+<li><strong>Definition</strong>: A fact table in Power BI contains numerical data (facts) that are typically used for measurements or calculations. It often includes foreign keys to link to dimension tables.</li>
+<li><strong>Example</strong>: The &quot;Sales&quot; table is a fact table that contains sales amounts and quantities.</li>
+</ul>
+</li>
+<li>
+<p><strong>Dimension</strong>:</p>
+<ul>
+<li><strong>Definition</strong>: A dimension table in Power BI stores descriptive data that can be used to categorize, filter, or group facts in a fact table.</li>
+<li><strong>Example</strong>: The &quot;Products&quot; table is a dimension table that provides information about products, such as product names, categories, and suppliers.</li>
+</ul>
+</li>
+<li>
+<p><strong>Calendar</strong>:</p>
+<ul>
+<li><strong>Definition</strong>: A calendar table is a special type of dimension table used to track and analyze date-related data, such as days, months, and years.</li>
+<li><strong>Example</strong>: The &quot;Calendar&quot; table contains a date column, allowing users to analyze sales data over time.</li>
+</ul>
+</li>
+<li>
+<p><strong>Relationship</strong>:</p>
+<ul>
+<li><strong>Definition</strong>: A relationship in Power BI defines how tables are connected or related to each other, typically using keys, to enable cross-table analysis and filtering.</li>
+<li><strong>Example</strong>: The &quot;Sales&quot; table has a relationship with the &quot;Products&quot; table through the &quot;Product ID&quot; key, enabling users to analyze sales by product.</li>
+</ul>
+</li>
+<li>
+<p><strong>One to Many, One to One, Many to Many</strong>:</p>
+<ul>
+<li><strong>Definition</strong>: These terms describe the types of relationships between tables. One to Many means one row in one table can relate to multiple rows in another table, One to One means one row in one table relates to only one row in another table, and Many to Many implies that many rows in one table relate to many rows in another.</li>
+<li><strong>Example</strong>: A one-to-many relationship exists between &quot;Customers&quot; and &quot;Sales&quot; because one customer can have multiple sales transactions.</li>
+</ul>
+</li>
+<li>
+<p><strong>Keys - Primary &amp; Foreign Keys</strong>:</p>
+<ul>
+<li><strong>Definition</strong>: Primary keys are unique identifiers in a table, while foreign keys in another table reference those primary keys to establish relationships.</li>
+<li><strong>Example</strong>: The &quot;Product ID&quot; in the &quot;Products&quot; table is a primary key, and the &quot;Product ID&quot; in the &quot;Sales&quot; table is a foreign key.</li>
+</ul>
+</li>
+<li>
+<p><strong>Star Schema</strong>:</p>
+<ul>
+<li><strong>Definition</strong>: A star schema is a data modeling technique where one central fact table is connected to multiple dimension tables. It simplifies querying and improves performance.</li>
+<li><strong>Example</strong>: In a star schema, the &quot;Sales&quot; fact table is connected to dimension tables like &quot;Products,&quot; &quot;Customers,&quot; and &quot;Calendar.&quot;</li>
+</ul>
+</li>
+<li>
+<p><strong>Snowflake Schema</strong>:</p>
+<ul>
+<li><strong>Definition</strong>: A snowflake schema is an extension of the star schema, where dimension tables are normalized into sub-dimensions. It's used to reduce redundancy in dimension data.</li>
+<li><strong>Example</strong>: In a snowflake schema, the &quot;Products&quot; dimension table might be normalized into &quot;Categories&quot; and &quot;Suppliers&quot; sub-dimension tables.</li>
+</ul>
+</li>
+<li>
+<p><strong>Measures</strong>:</p>
+<ul>
+<li><strong>Definition</strong>: Measures are calculations applied to the data, such as sums, averages, or ratios. They provide insights into the facts.</li>
+<li><strong>Example</strong>: A &quot;Total Sales&quot; measure calculates the sum of all sales amounts in the &quot;Sales&quot; table.</li>
+</ul>
+</li>
+<li>
+<p><strong>Values, Aggregation</strong>:</p>
+<ul>
+<li><strong>Definition</strong>: Values are individual data points, while aggregation involves summarizing values using functions like SUM, AVERAGE, COUNT, etc.</li>
+<li><strong>Example</strong>: In a sales table, individual sales amounts are values, and the &quot;Total Sales&quot; measure is an aggregation.</li>
+</ul>
+</li>
+<li>
+<p><strong>Data Modeling</strong>:</p>
+<ul>
+<li><strong>Definition</strong>: Data modeling is the process of designing how data tables and relationships should be structured to facilitate analysis.</li>
+<li><strong>Example</strong>: Creating relationships between the &quot;Sales&quot; and &quot;Products&quot; tables is part of data modeling in Power BI.</li>
+</ul>
+</li>
+<li>
+<p><strong>Slicer</strong>:</p>
+<ul>
+<li><strong>Definition</strong>: A slicer is a visual element in a report that allows users to filter data interactively.</li>
+<li><strong>Example</strong>: A slicer for product categories lets users filter sales data by selecting specific categories.</li>
+</ul>
+</li>
+<li>
+<p><strong>Filter</strong>:</p>
+<ul>
+<li><strong>Definition</strong>: A filter restricts the data displayed in a report to specific criteria, helping focus on relevant information.</li>
+<li><strong>Example</strong>: Applying a filter to show only sales from a particular region.</li>
+</ul>
+</li>
+<li>
+<p><strong>Query</strong>:</p>
+<ul>
+<li><strong>Definition</strong>: A query is a request for data from a data source or the Power BI model, often involving data transformation.</li>
+<li><strong>Example</strong>: Writing a query to extract sales data from a database and load it into Power BI.</li>
+</ul>
+</li>
+<li>
+<p><strong>ETL (Extract, Transform, Load)</strong>:</p>
+<ul>
+<li><strong>Definition</strong>: ETL is the process of extracting data from various sources, transforming it to meet analysis requirements, and loading it into a data model.</li>
+<li><strong>Example</strong>: Extracting sales data from a CSV file, transforming it to calculate total sales, and loading it into Power BI.</li>
+</ul>
+</li>
+<li>
+<p><strong>Batch</strong>:</p>
+<ul>
+<li><strong>Definition</strong>: A batch refers to a group of data or changes processed together in data loading or refresh operations.</li>
+<li><strong>Example</strong>: Running a nightly batch job to update the data in the Power BI model with the latest sales data.</li>
+</ul>
+</li>
+<li>
+<p><strong>Data Pipeline</strong>:</p>
+<ul>
+<li><strong>Definition</strong>: A data pipeline is a series of data processing steps, often used in ETL processes, to move and transform data from source to destination.</li>
+<li><strong>Example</strong>: Designing a data pipeline to ingest data from multiple sources, clean and transform it, and load it into a data warehouse or Power BI.</li>
+</ul>
+</li>
+<li>
+<p><strong>Source</strong>:</p>
+<ul>
+<li><strong>Definition</strong>: A source is the origin of data, such as a database, file, or web service, from which data is extracted for analysis.</li>
+<li><strong>Example</strong>: The source of sales data can be a SQL database, an Excel spreadsheet, or a web API.</li>
+</ul>
+</li>
+<li>
+<p><strong>Refresh</strong>:</p>
+<ul>
+<li><strong>Definition</strong>: Refreshing data involves updating the dataset with the latest data from the source. This is essential to keep reports up to date.</li>
+<li><strong>Example</strong>: Scheduling regular data refresh to ensure that the Power BI reports always show the most recent sales data.</li>
+</ul>
+</li>
+</ol>
+<h3 id="refernce">Refernce :</h3>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/power-bi/fundamentals/glossary">Power BI Glossary - Microsoft Docs</a></li>
+</ul>
+
+</body>
+</html>
